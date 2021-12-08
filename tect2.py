@@ -23,12 +23,13 @@ class WindowFirst:
         Label(self.window, image=self.our_icon_1, bg="White").grid(row=0, column=0, sticky=W, padx=5, pady=5)
         Label(self.window, text="Объем спирта:", font=10, bg="White").grid(row=1, column=0, sticky=W, padx=5, pady=5)
         Label(self.window, text="литр:", font=10, bg="White").grid(row=1, column=3)
-        Label(self.window, text="Процент спирта до:", font=10, bg="White").grid(row=2, column=0, sticky=W, padx=5, pady=5)
+        Label(self.window, text="Процент спирта до:", font=10, bg="White").grid(row=2, column=0, sticky=W, padx=5,
+                                                                                pady=5)
         Label(self.window, text="%:", font=10, bg="White").grid(row=2, column=3)
         Label(self.window, text="Процент после: ", font=10, bg="White").grid(row=3, column=0, sticky=W, padx=5, pady=5)
         Label(self.window, text="%:", font=10, bg="White").grid(row=3, column=3)
         self.label_2.grid(row=0, column=4, rowspan=3, columnspan=2)
-        self.label_3.grid(row=0, column=1, columnspan=2)
+        self.label_3.grid(row=0, column=0, columnspan=3)
 
     def draw_entry(self):
 
@@ -54,8 +55,8 @@ class WindowFirst:
             self.label_3["text"] = round(x, 2)
 
         except ValueError:
-            self.label_3["text"] = "Введите корректное значение"
-            self.lebel_4.grid_forget()
+            self.label_3["text"] = "\t Введите корректное значение"
+            #self.lebel_4.grid_forget()
 
     def grad_focus(self):
 
@@ -69,7 +70,8 @@ class WindowFirst:
         self.draw_entry()
         self.window.mainloop()
 
-"""
+
+
 class WindowSecond:
 
     def __init__(self, title=None, resizable=(True, False)):
@@ -172,9 +174,8 @@ class WindowFifth:
         self.draw_label()
         self.draw_button()
         self.draw_entry()
-"""
+
 
 if __name__ == "__main__":
-
-    second = WindowFirst()
+    second = WindowFirst(title="Расчет")
     second.run()
