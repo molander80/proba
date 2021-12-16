@@ -122,6 +122,7 @@ class WindowSecond:
         self.draw_label()
         self.draw_button()
         self.draw_entry()
+        self.window.mainloop()
 
 
 class WindowFifth:
@@ -179,3 +180,7 @@ class WindowFifth:
 if __name__ == "__main__":
     second = WindowFirst(title="Расчет")
     second.run()
+    first = WindowSecond(title="Самагон")
+    first.run()
+
+
