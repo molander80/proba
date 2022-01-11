@@ -1,4 +1,3 @@
-graph.py
 setup.py
 graph.egg-info/PKG-INFO
 graph.egg-info/SOURCES.txt

@@ -43,16 +43,19 @@ class WindowFirst:
 
     def alcohol(self):
 
-        self.label_2.configure(image=self.our_icon_3)
-        #Label(self.window, font=10, image=self.our_icon_3, bg="White").grid(row=0, column=4, rowspan=3, columnspan=2)
-        p = self.entry_1.get()
-        n = self.entry_2.get()
-        m = self.entry_3.get()
-        n, m = int(n), int(m)
-        p = float(p)
-        x = n * p / m - p
-        self.label_3["text"] = round(x, 2)
-        #self.lebel_4.grid_forget()
+        try:
+            self.label_2.configure(image=self.our_icon_3)
+            p = self.entry_1.get()
+            n = self.entry_2.get()
+            m = self.entry_3.get()
+            n, m = int(n), int(m)
+            p = float(p)
+            x = n * p / m - p
+            self.label_3["text"] = round(x, 2)
+
+        except ValueError:
+            self.label_3.grid(row=0, column=0, columnspan=3)
+            self.label_3["text"] = "\t Введите корректное значение"
 
     def grad_focus(self):
 
@@ -137,12 +140,12 @@ class WindowFifth:
     def draw_label(self):
 
         Label(self.window, image=self.our_icon_1, bg="White").grid(row=0, column=0, sticky=W, padx=5, pady=5)
-        Label(self.window, text="Объем спирта:", font=10, bg="White").grid(row=1, column=0, sticky=W, padx=5, pady=5)
+        Label(self.window, text="Вода:", font=10, bg="White").grid(row=1, column=0, sticky=W, padx=5, pady=5)
         Label(self.window, text="литр:", font=10, bg="White").grid(row=1, column=3)
-        Label(self.window, text="Процент спирта до:", font=10, bg="White").grid(row=2, column=0, sticky=W, padx=5, pady=5)
-        Label(self.window, text="%:", font=10, bg="White").grid(row=2, column=3)
+        Label(self.window, text="Сахар:", font=10, bg="White").grid(row=2, column=0, sticky=W, padx=5, pady=5)
+        Label(self.window, text="кг:", font=10, bg="White").grid(row=2, column=3)
         self.label_2.grid(row=0, column=4, rowspan=3, columnspan=2)
-        self.label_3.grid(row=4, column=4, columnspan=2)
+        self.label_3.grid(row=0, column=1, columnspan=3)
 
     def draw_entry(self):
 
@@ -151,12 +154,24 @@ class WindowFifth:
 
     def draw_button(self):
 
-        Button(self.window, text="ПОСЧИТАТЬ", command=self.alcohol, bg="White").grid(row=4, column=4, sticky=EW)
+        Button(self.window, text="ПОСЧИТАТЬ", command=self.sugar_braga, bg="White").grid(row=4, column=4, sticky=EW)
         Button(self.window, text="НАЗАД", bg="White", command=self.window.destroy).grid(row=4, column=0, sticky=W)
 
-    def alcohol(self):
+    def sugar_braga(self):
 
-        Label(self.window, font=10, image=self.our_icon_3, bg="White").grid(row=0, column=4, rowspan=3, columnspan=2)
+        try:
+            self.label_2.configure(image=self.our_icon_3)
+            sugar = self.entry_2.get()
+            water = self.entry_1.get()
+            sugar, water = int(sugar), int(water)
+            volume = water + sugar * 0.6
+            alcohol_content = (sugar * 0.6) / volume * 100
+            self.label_3["text"] = str(round(volume, 2)) + "\t Обьем браги" + "\n" \
+                                   + str(round(alcohol_content, 2)) + "\t Спиртуозность"
+
+        except ValueError:
+            self.label_3.grid(row=0, column=0, columnspan=3)
+            self.label_3["text"] = "\t Введите корректное значение"
 
     def grad_focus(self):
 
