@@ -1,4 +1,4 @@
-from tect import *
+from tect2 import *
 
 
 class Window:
@@ -20,14 +20,15 @@ class Window:
 
         Button(self.tk, text="Калькулятор \n разбавления самогона", font=10, bg="White", image=self.our_button_2,
                highlightthickness=0, bd=0, compound=TOP, activebackground="White",
-               command=self.draw_button).grid(row=0, column=0)
+               command=self.draw_button_1).grid(row=0, column=0)
 
         Button(self.tk, text="Калькулятор \n смешивания алкоголя", font=10, bg="White", image=self.our_button_4,
                highlightthickness=0, bd=0, compound=TOP, activebackground="White",
-               command=self.draw_button_1).grid(row=0, column=1)
+               command=self.draw_button_2).grid(row=0, column=1)
 
         Button(self.tk, text="Калькулятор \n второй перегонки", font=10, bg="White", image=self.our_button_3,
-               highlightthickness=0, bd=0, compound=TOP, activebackground="White").grid(row=0, column=2)
+               highlightthickness=0, bd=0, compound=TOP, activebackground="White",
+               command=self.draw_button_3).grid(row=0, column=2)
 
         Button(self.tk, text="Таблица содержания \n сахара", font=10, bg="White", image=self.our_button_1,
                highlightthickness=0, bd=0, compound=TOP, activebackground="White").grid(row=0, column=3)
@@ -45,13 +46,16 @@ class Window:
         Button(self.tk, text="Калькулятор \n коррекции показаний \n ареометра", font=10, bg="White", image=self.our_button_8,
                highlightthickness=0, bd=0, compound=TOP, activebackground="White").grid(row=1, column=3, sticky=EW)
 
-    def draw_button(self):
-
+    def draw_button_1(self):
         WindowFirst(title="Калькулятор разбавления самогона").run()
 
-    def draw_button_1(self):
+    def draw_button_2(self):
 
         WindowSecond(title="Калькулятор смешивания самогона").run()
+
+    def draw_button_3(self):
+
+        WindowThree(title="Калькулятор дробной перегонки спирта-сырца").run()
 
     def draw_button_5(self):
 
