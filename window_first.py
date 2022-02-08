@@ -30,21 +30,19 @@ class Window:
                highlightthickness=0, bd=0, compound=TOP, activebackground="White",
                command=self.draw_button_3).grid(row=0, column=2)
 
-        Button(self.tk, text="Таблица содержания \n сахара", font=10, bg="White", image=self.our_button_1,
-               highlightthickness=0, bd=0, compound=TOP, activebackground="White").grid(row=0, column=3)
-
         Button(self.tk, text="Расчет параметров \n сахарной браги \n", font=10, bg="White", image=self.our_button_5,
                highlightthickness=0, bd=0, compound=TOP, activebackground="White",
-               command=self.draw_button_5).grid(row=1, column=0, sticky=EW)
+               command=self.draw_button_4).grid(row=1, column=0, sticky=EW)
 
-        Button(self.tk, text="Калькулятор замены \n сахара глюкозой \n", font=10, bg="White", image=self.our_button_6,
-               highlightthickness=0, bd=0, compound=TOP, activebackground="White").grid(row=1, column=1, sticky=EW)
+        Button(self.tk, text="Калькулятор \n абсолютного спирта и \n отбора голов", font=10, bg="White",
+               image=self.our_button_6,
+               highlightthickness=0, bd=0, compound=TOP, activebackground="White",
+               command=self.draw_button_5).grid(row=1, column=1, sticky=EW)
 
-        Button(self.tk, text="Калькулятор \n абсолютного спирта и \n отбора голов", font=10, bg="White", image=self.our_button_7,
-               highlightthickness=0, bd=0, compound=TOP, activebackground="White").grid(row=1, column=2, sticky=EW)
-
-        Button(self.tk, text="Калькулятор \n коррекции показаний \n ареометра", font=10, bg="White", image=self.our_button_8,
-               highlightthickness=0, bd=0, compound=TOP, activebackground="White").grid(row=1, column=3, sticky=EW)
+        Button(self.tk, text="Калькулятор \n коррекции показаний \n ареометра", font=10, bg="White",
+               image=self.our_button_8,
+               highlightthickness=0, bd=0, compound=TOP, activebackground="White",
+               command=self.draw_button_6).grid(row=1, column=2, sticky=EW)
 
     def draw_button_1(self):
         WindowFirst(title="Калькулятор разбавления самогона").run()
@@ -57,9 +55,17 @@ class Window:
 
         WindowThree(title="Калькулятор дробной перегонки спирта-сырца").run()
 
+    def draw_button_4(self):
+
+        WindowFourth(title="Расчет параметров сахарной браги").run()
+
     def draw_button_5(self):
 
-        WindowFifth(title="Расчет параметров сахарной браги").run()
+        WindowFifth(title="Калькулятор абсолютного спирта и отбора голов").run()
+
+    def draw_button_6(self):
+
+        WindowSixth(title="Калькулятор коррекции показаний ареометра").run()
 
     def run(self):
         self.draw_widgest()
