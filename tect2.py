@@ -72,7 +72,6 @@ class WindowFirst(TopWindow):
 
         except ValueError:
             self.label_3["text"] = "\t Введите корректное значение"
-            #self.Label_1.configure(image=self.our_icon_1)
 
     def run(self):
 
@@ -86,7 +85,12 @@ class WindowSecond(TopWindow):
 
     def __init__(self, title=None):
         super().__init__()
+        self.entry_1 = None
         self.window.title(title)
+        self.entry_1 = Entry(self.window, width=10, bg="White")
+        self.entry_2 = Entry(self.window, width=10, bg="White")
+        self.entry_3 = Entry(self.window, width=10, bg="White")
+        self.entry_4 = Entry(self.window, width=10, bg="White")
 
     def draw_label(self):
 
@@ -105,13 +109,9 @@ class WindowSecond(TopWindow):
 
     def draw_entry(self):
 
-        self.entry_1 = Entry(self.window, width=10, bg="White")
         self.entry_1.grid(row=1, column=1, sticky=EW)
-        self.entry_2 = Entry(self.window, width=10, bg="White")
         self.entry_2.grid(row=2, column=1, sticky=EW)
-        self.entry_3 = Entry(self.window, width=10, bg="White")
         self.entry_3.grid(row=3, column=1, sticky=EW)
-        self.entry_4 = Entry(self.window, width=10, bg="White")
         self.entry_4.grid(row=4, column=1, sticky=EW)
 
     def draw_button(self):
@@ -157,10 +157,11 @@ class WindowThree(TopWindow):
 
         Label(self.window, text="Объем спирта:", font=10, bg="White").grid(row=1, column=0, sticky=W, padx=5, pady=5)
         Label(self.window, text="литр:", font=10, bg="White").grid(row=1, column=3)
-        Label(self.window, text="Крепость спитра-сырца:", font=10, bg="White").grid(row=2, column=0, sticky=W, padx=5,
-                                                                                pady=5)
+        Label(self.window, text="Крепость спитра-сырца:", font=10, bg="White").\
+            grid(row=2, column=0, sticky=W, padx=5, pady=5)
         Label(self.window, text="%:", font=10, bg="White").grid(row=2, column=3)
-        Label(self.window, text="Крепость на выходе: ", font=10, bg="White").grid(row=3, column=0, sticky=W, padx=5, pady=5)
+        Label(self.window, text="Крепость на выходе: ", font=10, bg="White").\
+            grid(row=3, column=0, sticky=W, padx=5, pady=5)
         Label(self.window, text="%:", font=10, bg="White").grid(row=3, column=3)
 
     def draw_entry(self):
@@ -174,7 +175,6 @@ class WindowThree(TopWindow):
         Button(self.window, text="ПОСЧИТАТЬ", command=self.alcohol, bg="White").grid(row=4, column=4, sticky=EW)
         Button(self.window, text="НАЗАД", bg="White", command=self.window.destroy).grid(row=4, column=0, sticky=W)
 
-
     def alcohol(self):
 
         try:
@@ -187,7 +187,6 @@ class WindowThree(TopWindow):
 
         except ValueError:
             self.label_3["text"] = "\t Введите корректное значение"
-
 
     def run(self):
 
@@ -213,7 +212,8 @@ class WindowFourth(TopWindow):
         Label(self.window, image=self.our_icon_1, bg="White").grid(row=0, column=0, sticky=W, padx=5, pady=5)
         Label(self.window, text="Объем воды:", font=10, bg="White").grid(row=1, column=0, sticky=W, padx=5, pady=5)
         Label(self.window, text="литр:", font=10, bg="White").grid(row=1, column=3)
-        Label(self.window, text="Количество сахара:", font=10, bg="White").grid(row=2, column=0, sticky=W, padx=5, pady=5)
+        Label(self.window, text="Количество сахара:", font=10, bg="White").\
+            grid(row=2, column=0, sticky=W, padx=5, pady=5)
         Label(self.window, text="кг:", font=10, bg="White").grid(row=2, column=3)
         self.label_2.grid(row=0, column=4, rowspan=3, columnspan=2)
         self.label_3.grid(row=0, column=0, columnspan=5)
@@ -257,6 +257,7 @@ class WindowFourth(TopWindow):
         self.draw_entry()
         self.window.mainloop()
 
+
 class WindowFifth(TopWindow):
 
     def __init__(self, title=None):
@@ -271,9 +272,12 @@ class WindowFifth(TopWindow):
 
     def draw_label(self):
 
-        Label(self.window, text="Объем спирта-сырца:", font=10, bg="White").grid(row=1, column=0, sticky=W, padx=5, pady=5)
-        Label(self.window, text="литров:", font=10, bg="White").grid(row=1, column=3)
-        Label(self.window, text="Крепость спирта-сырца", font=10, bg="White").grid(row=2, column=0, sticky=W, padx=5, pady=5)
+        Label(self.window, text="Объем спирта-сырца:", font=10, bg="White").\
+            grid(row=1, column=0, sticky=W, padx=5, pady=5)
+        Label(self.window, text="литров:", font=10, bg="White").\
+            grid(row=1, column=3)
+        Label(self.window, text="Крепость спирта-сырца", font=10, bg="White").\
+            grid(row=2, column=0, sticky=W, padx=5, pady=5)
         Label(self.window, text="литров:", font=10, bg="White").grid(row=2, column=3)
         Label(self.window, text="Головы: ", font=10, bg="White").grid(row=3, column=0, sticky=W, padx=5, pady=5)
         Label(self.window, text="%:", font=10, bg="White").grid(row=3, column=3)
@@ -319,6 +323,7 @@ class WindowFifth(TopWindow):
         self.draw_entry()
         self.window.mainloop()
 
+
 class WindowSixth(TopWindow):
 
     def __init__(self, title=None):
@@ -332,9 +337,11 @@ class WindowSixth(TopWindow):
 
     def draw_label(self):
 
-        Label(self.window, text="Темпиратура сырца:", font=10, bg="White").grid(row=1, column=0, sticky=W, padx=5, pady=5)
+        Label(self.window, text="Темпиратура сырца:", font=10, bg="White").\
+            grid(row=1, column=0, sticky=W, padx=5, pady=5)
         Label(self.window, text="°С:", font=10, bg="White").grid(row=1, column=3)
-        Label(self.window, text="Показание ареометра:", font=10, bg="White").grid(row=2, column=0, sticky=W, padx=5, pady=5)
+        Label(self.window, text="Показание ареометра:", font=10, bg="White").\
+            grid(row=2, column=0, sticky=W, padx=5, pady=5)
         Label(self.window, text="°:", font=10, bg="White").grid(row=2, column=3)
         self.label_2.grid(row=0, column=4, rowspan=3, columnspan=2)
         self.label_3.grid(row=0, column=0, columnspan=5)
@@ -379,13 +386,9 @@ class WindowSixth(TopWindow):
 
 
 if __name__ == "__main__":
-    first = WindowFirst (title="Расчет")
+    first = WindowFirst(title="Расчет")
     first.run()
     second = WindowSecond(title="Проба")
     second.run()
     fifth = WindowFifth(title="брага")
     fifth.run()
-
-
-
-
