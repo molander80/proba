@@ -74,6 +74,9 @@ class WindowFirst(TopWindow):
             self.label_3["text"] = "\t Введите корректное значение"
             self.Label_1.configure(image=self.our_icon_1)
 
+    def grad_focus(self):
+        super().grad_focus()
+
     def run(self):
 
         self.draw_label()
@@ -126,16 +129,16 @@ class WindowSecond(TopWindow):
             p = self.entry_1.get()
             n = self.entry_2.get()
             m = self.entry_3.get()
-            m = int(m)
+            o = self.entry_4.get()
+            p, m = float(p), float(m)
+            n, o = int(n), int(o)
             self.label_3["text"] = round(m)
 
         except ValueError:
             self.label_3["text"] = "\t Введите корректное значение"
 
     def grad_focus(self):
-
-        self.window.grab_set()
-        self.window.focus_set()
+        super().grad_focus()
 
     def run(self):
 
@@ -187,6 +190,9 @@ class WindowThree(TopWindow):
 
         except ValueError:
             self.label_3["text"] = "\t Введите корректное значение"
+
+    def grad_focus(self):
+        super().grad_focus()
 
     def run(self):
 
@@ -243,12 +249,10 @@ class WindowFourth(TopWindow):
 
         except ValueError:
             self.label_3["text"] = "\t Введите корректное значение"
-            # self.Label_1.configure(image=self.our_icon_1)
+            self.Label_1.configure(image=self.our_icon_1)
 
     def grad_focus(self):
-
-        self.window.grab_set()
-        self.window.focus_set()
+        super().grad_focus()
 
     def run(self):
 
