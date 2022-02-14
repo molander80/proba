@@ -72,6 +72,7 @@ class WindowFirst(TopWindow):
 
         except ValueError:
             self.label_3["text"] = "\t Введите корректное значение"
+            self.Label_1.configure(image=self.our_icon_1)
 
     def run(self):
 
@@ -85,7 +86,6 @@ class WindowSecond(TopWindow):
 
     def __init__(self, title=None):
         super().__init__()
-        self.entry_1 = None
         self.window.title(title)
         self.entry_1 = Entry(self.window, width=10, bg="White")
         self.entry_2 = Entry(self.window, width=10, bg="White")
@@ -274,8 +274,7 @@ class WindowFifth(TopWindow):
 
         Label(self.window, text="Объем спирта-сырца:", font=10, bg="White").\
             grid(row=1, column=0, sticky=W, padx=5, pady=5)
-        Label(self.window, text="литров:", font=10, bg="White").\
-            grid(row=1, column=3)
+        Label(self.window, text="литров:", font=10, bg="White").grid(row=1, column=3)
         Label(self.window, text="Крепость спирта-сырца", font=10, bg="White").\
             grid(row=2, column=0, sticky=W, padx=5, pady=5)
         Label(self.window, text="литров:", font=10, bg="White").grid(row=2, column=3)
