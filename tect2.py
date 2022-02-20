@@ -68,7 +68,7 @@ class WindowFirst(TopWindow):
             n, m = int(n), int(m)
             p = float(p)
             x = n * p / m - p
-            self.label_3["text"] = round(x, 2)
+            self.label_3["text"] = "Вода " + str(round(x, 2)) + " лит."
 
         except ValueError:
             self.label_3["text"] = "\t Введите корректное значение"
@@ -300,14 +300,15 @@ class WindowFifth(TopWindow):
         try:
 
             self.label_2.configure(image=self.our_icon_3)
-            # water = self.entry_1.get()
-            # sugar = self.entry_2.get()
-            # water, sugar = int(water), int(sugar)
-            # volume = water + sugar * 0.6
-            # volume = float(volume)
-            # alcohol_content = (sugar * 0.6) / volume * 100
-            # self.label_3["text"] = "Объем браги  " + str(round(volume, 2)) + " лит." + \
-            #                        "\n Спиртуозность  " + str(round(alcohol_content, 2)) + " %"
+            amount_of_alcohol = self.entry_1.get()
+            alcohol_strength = self.entry_2.get()
+            percentage_of_alcohol = self.entry_3.get()
+            amount_of_alcohol, alcohol_strength = int(amount_of_alcohol), int(alcohol_strength)
+            percentage_of_alcohol = int(percentage_of_alcohol)
+            pure_alcohol = amount_of_alcohol * alcohol_strength / 100
+            volume_of_heads = pure_alcohol * percentage_of_alcohol * 10
+            self.label_3["text"] = "Объем чистого спирта:  " + str(round(pure_alcohol, 2)) + " лит." + \
+                                   "\n Объем «голов»:  " + str(round(volume_of_heads, 2)) + " милилит."
 
         except ValueError:
             self.label_3["text"] = "\t Введите корректное значение"
