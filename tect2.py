@@ -16,7 +16,7 @@ class TopWindow:
         self.label_3 = Label(self.window, font=10, bg="White")
         self.Label_1.grid(row=0, column=0, sticky=W, padx=5, pady=5)
         self.label_2.grid(row=0, column=4, rowspan=3, columnspan=2)
-        self.label_3.grid(row=0, column=0, columnspan=3)
+        self.label_3.grid(row=0, column=0, columnspan=5)
 
     def grad_focus(self):
 
@@ -71,8 +71,7 @@ class WindowFirst(TopWindow):
             self.label_3["text"] = "Вода " + str(round(x, 2)) + " лит."
 
         except ValueError:
-            self.label_3["text"] = "\t Введите корректное значение"
-            self.Label_1.configure(image=self.our_icon_1)
+            self.label_3["text"] = "Введите корректное значение"
 
     def grad_focus(self):
         super().grad_focus()
@@ -126,16 +125,17 @@ class WindowSecond(TopWindow):
 
         try:
             self.label_2.configure(image=self.our_icon_3)
-            p = self.entry_1.get()
-            n = self.entry_2.get()
-            m = self.entry_3.get()
-            o = self.entry_4.get()
-            p, m = float(p), float(m)
-            n, o = int(n), int(o)
-            self.label_3["text"] = round(m)
+            first_liquid = self.entry_1.get()
+            first_fortress = self.entry_2.get()
+            second_liquid = self.entry_3.get()
+            second_fortress = self.entry_4.get()
+            first_liquid, second_liquid = float(first_liquid), float(second_liquid)
+            first_fortress, second_fortress = int(first_fortress), int(second_fortress)
+            fortress = (first_liquid * first_fortress + second_liquid * second_fortress) / (first_liquid + second_liquid)
+            self.label_3["text"] = "\t Объем «голов»:  " + str(round(fortress, 2)) + " милилит."
 
         except ValueError:
-            self.label_3["text"] = "\t Введите корректное значение"
+            self.label_3["text"] = "Введите корректное значение"
 
     def grad_focus(self):
         super().grad_focus()
@@ -189,7 +189,7 @@ class WindowThree(TopWindow):
             self.label_3["text"] = round(m, 2)
 
         except ValueError:
-            self.label_3["text"] = "\t Введите корректное значение"
+            self.label_3["text"] = "Введите корректное значение"
 
     def grad_focus(self):
         super().grad_focus()
@@ -210,8 +210,6 @@ class WindowFourth(TopWindow):
         self.our_icon_3 = PhotoImage(file="icon-13.png").subsample(4, 4)
         self.entry_1 = Entry(self.window, width=10, bg="White")
         self.entry_2 = Entry(self.window, width=10, bg="White")
-        self.label_2 = Label(self.window, image=self.our_icon_2, bg="White")
-        self.label_3 = Label(self.window, font=10, bg="White")
 
     def draw_label(self):
 
@@ -221,8 +219,6 @@ class WindowFourth(TopWindow):
         Label(self.window, text="Количество сахара:", font=10, bg="White").\
             grid(row=2, column=0, sticky=W, padx=5, pady=5)
         Label(self.window, text="кг:", font=10, bg="White").grid(row=2, column=3)
-        self.label_2.grid(row=0, column=4, rowspan=3, columnspan=2)
-        self.label_3.grid(row=0, column=0, columnspan=5)
 
     def draw_entry(self):
 
@@ -248,8 +244,7 @@ class WindowFourth(TopWindow):
                                    "\n Спиртуозность  " + str(round(alcohol_content, 2)) + " %"
 
         except ValueError:
-            self.label_3["text"] = "\t Введите корректное значение"
-            self.Label_1.configure(image=self.our_icon_1)
+            self.label_3["text"] = "Введите корректное значение"
 
     def grad_focus(self):
         super().grad_focus()
@@ -271,8 +266,6 @@ class WindowFifth(TopWindow):
         self.entry_1 = Entry(self.window, width=10, bg="White")
         self.entry_2 = Entry(self.window, width=10, bg="White")
         self.entry_3 = Entry(self.window, width=10, bg="White")
-        self.label_2 = Label(self.window, image=self.our_icon_2, bg="White")
-        self.label_3 = Label(self.window, font=10, bg="White")
 
     def draw_label(self):
 
@@ -281,11 +274,9 @@ class WindowFifth(TopWindow):
         Label(self.window, text="литров:", font=10, bg="White").grid(row=1, column=3)
         Label(self.window, text="Крепость спирта-сырца", font=10, bg="White").\
             grid(row=2, column=0, sticky=W, padx=5, pady=5)
-        Label(self.window, text="литров:", font=10, bg="White").grid(row=2, column=3)
+        Label(self.window, text="%:", font=10, bg="White").grid(row=2, column=3)
         Label(self.window, text="Головы: ", font=10, bg="White").grid(row=3, column=0, sticky=W, padx=5, pady=5)
         Label(self.window, text="%:", font=10, bg="White").grid(row=3, column=3)
-        self.label_2.grid(row=0, column=4, rowspan=3, columnspan=2)
-        self.label_3.grid(row=0, column=0, columnspan=5)
 
     def draw_entry(self):
 
@@ -314,8 +305,7 @@ class WindowFifth(TopWindow):
                                    "\n Объем «голов»:  " + str(round(volume_of_heads, 2)) + " милилит."
 
         except ValueError:
-            self.label_3["text"] = "\t Введите корректное значение"
-            # self.Label_1.configure(image=self.our_icon_1)
+            self.label_3["text"] = " Введите корректное значение"
 
     def grad_focus(self):
         super().grad_focus()
@@ -336,8 +326,6 @@ class WindowSixth(TopWindow):
         self.our_icon_3 = PhotoImage(file="icon-13.png").subsample(4, 4)
         self.entry_1 = Entry(self.window, width=10, bg="White")
         self.entry_2 = Entry(self.window, width=10, bg="White")
-        self.label_2 = Label(self.window, image=self.our_icon_2, bg="White")
-        self.label_3 = Label(self.window, font=10, bg="White")
 
     def draw_label(self):
 
@@ -347,8 +335,6 @@ class WindowSixth(TopWindow):
         Label(self.window, text="Показание ареометра:", font=10, bg="White").\
             grid(row=2, column=0, sticky=W, padx=5, pady=5)
         Label(self.window, text="°:", font=10, bg="White").grid(row=2, column=3)
-        self.label_2.grid(row=0, column=4, rowspan=3, columnspan=2)
-        self.label_3.grid(row=0, column=0, columnspan=5)
 
     def draw_entry(self):
 
@@ -375,8 +361,7 @@ class WindowSixth(TopWindow):
             #                        "\n Спиртуозность  " + str(round(alcohol_content, 2)) + " %"
 
         except ValueError:
-            self.label_3["text"] = "\t Введите корректное значение"
-            # self.Label_1.configure(image=self.our_icon_1)
+            self.label_3["text"] = "Введите корректное значение"
 
     def grad_focus(self):
         super().grad_focus()
