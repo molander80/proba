@@ -132,7 +132,7 @@ class WindowSecond(TopWindow):
             first_liquid, second_liquid = float(first_liquid), float(second_liquid)
             first_fortress, second_fortress = int(first_fortress), int(second_fortress)
             fortress = (first_liquid * first_fortress + second_liquid * second_fortress) / (first_liquid + second_liquid)
-            self.label_3["text"] = "\t Объем «голов»:  " + str(round(fortress, 2)) + " милилит."
+            self.label_3["text"] = "Крепость на выходе: " + str(round(fortress, 2)) + " %."
 
         except ValueError:
             self.label_3["text"] = "Введите корректное значение"
@@ -297,7 +297,8 @@ class WindowFifth(TopWindow):
             amount_of_alcohol = self.entry_1.get()
             alcohol_strength = self.entry_2.get()
             percentage_of_alcohol = self.entry_3.get()
-            amount_of_alcohol, alcohol_strength = int(amount_of_alcohol), int(alcohol_strength)
+            amount_of_alcohol = float(amount_of_alcohol)
+            alcohol_strength = int(alcohol_strength)
             percentage_of_alcohol = int(percentage_of_alcohol)
             pure_alcohol = amount_of_alcohol * alcohol_strength / 100
             volume_of_heads = pure_alcohol * percentage_of_alcohol * 10
@@ -351,14 +352,13 @@ class WindowSixth(TopWindow):
         try:
 
             self.label_2.configure(image=self.our_icon_3)
-            # water = self.entry_1.get()
-            # sugar = self.entry_2.get()
-            # water, sugar = int(water), int(sugar)
-            # volume = water + sugar * 0.6
-            # volume = float(volume)
-            # alcohol_content = (sugar * 0.6) / volume * 100
-            # self.label_3["text"] = "Объем браги  " + str(round(volume, 2)) + " лит." + \
-            #                        "\n Спиртуозность  " + str(round(alcohol_content, 2)) + " %"
+            temperature = self.entry_1.get()
+            hydrometer_reading = self.entry_2.get()
+            temperature, hydrometer_reading = int(temperature), int(hydrometer_reading)
+            hydrometer_reading = hydrometer_reading + 5.7
+            for i in range(1, temperature):
+                hydrometer_reading -= 0.3
+            self.label_3["text"] = "Крепость сырца  " + str(round(hydrometer_reading, 2)) + " °:"
 
         except ValueError:
             self.label_3["text"] = "Введите корректное значение"

@@ -6,4 +6,10 @@ def sugar_braga():
     print(volume, "\t alcohol_content")
 
 
-sugar_braga()
+def alco(c, a):
+    a = a + 5.7
+    for i in range(1, c):
+        a -= 0.3
+    print(round(a, 2))
+
+alco(15, 40)
