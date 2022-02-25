@@ -210,14 +210,22 @@ class WindowThree(TopWindow):
             self.label_2.configure(image=self.our_icon_3)
             amount_of_alcohol = self.entry_1.get()
             alcohol_strength = self.entry_2.get()
-            percentage_of_alcohol = self.entry_3.get()
+            fortress_in = self.entry_3.get()
+            percentage_of_goals = self.entry_4.get()
+            percentage_of_tails = self.entry_5.get()
             amount_of_alcohol = float(amount_of_alcohol)
             alcohol_strength = int(alcohol_strength)
-            percentage_of_alcohol = int(percentage_of_alcohol)
+            percentage_of_goals = int(percentage_of_goals)
+            percentage_of_tails = int(percentage_of_tails)
+            fortress_in = int(fortress_in)
             pure_alcohol = amount_of_alcohol * alcohol_strength / 100
-            volume_of_heads = pure_alcohol * percentage_of_alcohol * 10
-            self.label_3["text"] = "Объем чистого спирта:  " + str(round(pure_alcohol, 2)) + " лит." + \
-                                   "\n Объем «голов»:  " + str(round(volume_of_heads, 2)) + " милилит."
+            share_of_heads = pure_alcohol * percentage_of_tails * 10
+            share_of_tails = pure_alcohol * percentage_of_goals * 10
+            absolute_alcohol = pure_alcohol - share_of_heads / 1000 - share_of_tails / 1000
+            product_is_fortress = absolute_alcohol * (100 - fortress_in) / 100 + absolute_alcohol
+            self.label_3["text"] = "Выход продукта крепостью:  " + str(round(product_is_fortress, 2)) + " лит." + \
+                                   "\n Доля «Голов»:  " + str(round(share_of_tails, 2)) + " милилит." + \
+                                   "\n Доля «Хвостов»:  " + str(round(share_of_heads, 2)) + " милилит."
 
         except ValueError:
             self.label_3["text"] = "Введите корректное значение"
